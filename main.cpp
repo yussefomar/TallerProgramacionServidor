@@ -1,17 +1,56 @@
+#include <string.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
-using namespace std;
-//http://www.bogotobogo.com/cplusplus/multithreading_pthread.php al final explica esa forma(no llegue a probarlo
-            //pero utiliza lo que explica antes.)
-int main() {
+#include <ModeloServidor.h>
+#include "SocketCliente/SocketCliente.h"
 
-	auto_ptr<communicatingThread> thread1(new communicatingThread(1));
-	auto_ptr<communicatingThread> thread2(new communicatingThread(2));
-	thread1->start();
-	thread2->start();
-	thread1->join();
-	thread2->join();
+void srv_run()
+{
+    std::cout << "server run" << std::endl;
+    //Setea la cantidad de clientes a esperar
+    ModeloServidor modeloServidor(2);
+    //Temporal hasta agregar thread
+//    while(true)
+//    {
+//        modeloServidor.recibirMensajes();
+//        modeloServidor.enviarMensajes();
+//    }
+    modeloServidor.recibirMensajes();
+    modeloServidor.enviarMensajes();
+}
 
-	cout << "s = " << s << endl;
-	return 0;
+void clt_run()
+{
+    std::cout << "client run" << std::endl;
+
+    SocketCliente socket;
+    std::string mensaje = "ho";
+//    while(true)
+//    {
+//        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+//        socket.enviarCodigoComando(mensaje);
+//        socket.recibirCodigoComando(mensaje);
+//    }
+    socket.enviarCodigoComando(mensaje);
+
+    mensaje = socket.recibirCodigoComando();
+    std::cout << mensaje << std::endl;
+    mensaje = socket.recibirCodigoComando();
+    std::cout << mensaje << std::endl;
+
+}
+
+int main(int argc, char* args[])
+{
+    if(argc == 2 && strncmp("srv", args[1], 3) == 0)
+    {
+        srv_run();
+    }
+    if(argc == 2 && strncmp("clt", args[1], 3) == 0)
+    {
+        clt_run();
+    }
+    return 0;
 }

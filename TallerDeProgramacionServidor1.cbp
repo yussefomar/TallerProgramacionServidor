@@ -11,8 +11,10 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="srv" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="ModelServidor" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="ModelServidor" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,6 +35,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ModelServidor/Buffer.cpp" />
+		<Unit filename="ModelServidor/Buffer.h" />
+		<Unit filename="ModelServidor/Cliente.cpp" />
+		<Unit filename="ModelServidor/Cliente.h" />
+		<Unit filename="ModelServidor/ModeloServidor.cpp" />
+		<Unit filename="ModelServidor/ModeloServidor.h" />
+		<Unit filename="SocketCliente/SocketCliente.cpp" />
+		<Unit filename="SocketCliente/SocketCliente.h" />
+		<Unit filename="SocketServidor/SocketServidor.cpp" />
+		<Unit filename="SocketServidor/SocketServidor.h" />
+		<Unit filename="Thread/ Runnable .cpp" />
+		<Unit filename="Thread/ Runnable .h" />
+		<Unit filename="Thread/Thread.cpp" />
+		<Unit filename="Thread/Thread.h" />
+		<Unit filename="Thread/communicatingThread.cpp" />
+		<Unit filename="Thread/communicatingThread.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

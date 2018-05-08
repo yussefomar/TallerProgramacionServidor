@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1525401580 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServido.cpp
+	"ModeloServido.h"
+
+1525401580 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServido.h
+
+1525661887 source:/home/joacko/TallerProgramacionServidor/SocketCliente/SocketCliente.cpp
+	"SocketCliente.h"
+
+1525661862 /home/joacko/TallerProgramacionServidor/SocketCliente/SocketCliente.h
+	<string>
+
+1525656387 source:/home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.cpp
+	"SocketServidor.h"
+
+1525656402 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
+	<string>
+
+1525656017 source:/home/joacko/TallerProgramacionServidor/main.cpp
+	<string.h>
+	<iostream>
+	<chrono>
+	<thread>
+	<ModeloServidor.h>
+	"SocketCliente/SocketCliente.h"
+
+1525574535 source:/home/joacko/TallerProgramacionServidor/Thread/communicatingThread.cpp
+
+1525574542 source:/home/joacko/TallerProgramacionServidor/Thread/Thread.cpp
+
+1525574562 source:/home/joacko/TallerProgramacionServidor/Thread/ Runnable .cpp
+
+1525661793 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
+	"Buffer.h"
+	<iostream>
+
+1525661676 /home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.h
+	<vector>
+	<queue>
+	<string>
+
+1525653963 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
+	"Cliente.h"
+	<iostream>
+
+1525654104 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
+	"Buffer.h"
+	"../SocketServidor/SocketServidor.h"
+
+1525817888 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+	"ModeloServidor.h"
+
+1525817901 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+	<vector>
+	"Cliente.h"
+	"Buffer.h"
+

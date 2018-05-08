@@ -1,12 +1,12 @@
-#include " Runnable .h"
-
- Runnable :: Runnable ()
-{
-    //ctor
-}
-
- Runnable ::~ Runnable ()
-{
-    //dtor
-}
-
+//#include " Runnable .h"
+//
+// Runnable :: Runnable ()
+//{
+//    //ctor
+//}
+//
+// Runnable ::~ Runnable ()
+//{
+//    //dtor
+//}
+//
