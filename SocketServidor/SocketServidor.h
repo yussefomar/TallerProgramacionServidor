@@ -4,15 +4,22 @@
 #include <string>
 class SocketServidor
 {
-    public:
-        SocketServidor();
-        virtual ~SocketServidor();
-        void enviarCodigoComando(std::string codigo);
-        std::string recibirCodigoComando();
+public:
+    SocketServidor();
+    virtual ~SocketServidor();
+    void enviarCodigoComando(std::string codigo);
+    void enviarCantidadCambios(unsigned cantidadCambios);
+    bool estaConectado();
+    std::string recibirCodigoComando();
+    void generarMasterSocketFD();
 
-    protected:
+protected:
 
-    private:
+private:
+    static int masterSocketFD;
+    static int masterSocketFDConectado;
+    int socketFD;
+    bool socketConectado;
 };
 
 #endif // SOCKETSERVIDOR_H

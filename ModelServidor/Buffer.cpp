@@ -24,5 +24,6 @@ std::string Buffer::popCodigoEnCanal(int idCanal) {
 void Buffer::pushCodigo(std::string codigo) {
     for(unsigned i = 0; i < this->buffers.size(); ++i) {
         this->buffers[i].push(codigo);
+
     }
 }

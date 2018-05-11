@@ -12,8 +12,8 @@
   <line>Command: /home/joacko/TallerProgramacionServidor/bin/Debug/TallerDeProgramacionServidor1 srv</line>
 </preamble>
 
-<pid>24312</pid>
-<ppid>15603</ppid>
+<pid>21167</pid>
+<ppid>9812</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -32,13 +32,13 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.074 </time>
+  <time>00:00:00:00.110 </time>
 </status>
 
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:00.711 </time>
+  <time>00:00:15:01.230 </time>
 </status>
 
 <errorcounts>

@@ -7,14 +7,16 @@
 class Cliente
 {
     public:
-        Cliente(int id, Buffer* buffer);
+        Cliente(Buffer* buffer);
         virtual ~Cliente();
         void recibirMensaje();
         void enviarMensajes();
+        bool estaConectado();
 
     protected:
 
     private:
+        static int contadorClientes;
         int id;
         Buffer* buffer;
         SocketServidor socket;

@@ -14,6 +14,11 @@ class ModeloServidor
         void enviarMensajes();
         void recibirMensajes();
 
+        void aceptarClientesEntrantes();
+        void rechazarClientesEntrantes();
+
+        bool clientesEstanConectados();
+
     protected:
 
     private:
