@@ -126,29 +126,14 @@ void SocketServidor::generarMasterSocketFD()
     SocketServidor::masterSocketFDConectado = 1;
 }
 
-std::string SocketServidor::recibirCodigoComando()
+char SocketServidor::recibirCodigoComando()
 {
-    std::string comando;
-    char byte;
-
-    byte = this->recibirByte();
-    char entidad = byte >> 4;
-    comando.push_back(entidad);
-    char evento = byte & 0x0F;
-    comando.push_back(evento);
-
-    return comando;
+    return this->recibirByte();
 }
 
-void SocketServidor::enviarCodigoComando(std::string comando)
+void SocketServidor::enviarCodigoComando(char comando)
 {
-    char byte;
-
-    char entidad = comando[ENTIDAD];
-    char evento = comando[EVENTO];
-    byte = entidad << 4;
-    byte = byte | evento;
-    this->enviarByte(byte);
+    this->enviarByte(comando);
 }
 
 void SocketServidor::enviarCantidadCambios(unsigned cantidadCambios)

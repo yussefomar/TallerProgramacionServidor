@@ -7,10 +7,10 @@ class SocketServidor
 public:
     SocketServidor();
     virtual ~SocketServidor();
-    void enviarCodigoComando(std::string codigo);
+    void enviarCodigoComando(char codigo);
     void enviarCantidadCambios(unsigned cantidadCambios);
     bool estaConectado();
-    std::string recibirCodigoComando();
+    char recibirCodigoComando();
     void generarMasterSocketFD();
     void enviarByte(char byte);
     char recibirByte();

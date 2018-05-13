@@ -18,13 +18,13 @@ int Cliente::contadorClientes = -1;
 
 void Cliente::enviarMensaje()
 {
-    std::string codigo = this->buffer->popCodigo(this->id);
+    char codigo = this->buffer->popCodigo(this->id);
     this->socket.enviarCodigoComando(codigo);
 }
 
 void Cliente::recibirMensaje()
 {
-    std::string codigo = this->socket.recibirCodigoComando();
+    char codigo = this->socket.recibirCodigoComando();
     this->buffer->pushCodigo(codigo);
 }
 

@@ -11,13 +11,13 @@ class Buffer
         Buffer(int cantidadClientes);
         virtual ~Buffer();
         unsigned cantidadCodigos(int idCanal);
-        std::string popCodigo(int idCanal);
-        void pushCodigo(std::string codigo);
+        char popCodigo(int idCanal);
+        void pushCodigo(char codigo);
 
     protected:
 
     private:
-        std::vector<std::queue<std::string>> buffers;
+        std::vector<std::queue<char>> buffers;
 };
 
 #endif // BUFFER_H

@@ -20,7 +20,7 @@
 1525930098 /home/joacko/TallerProgramacionServidor/SocketCliente/SocketCliente.h
 	<string>
 
-1526237917 source:/home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.cpp
+1526251249 source:/home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.cpp
 	"SocketServidor.h"
 	<sys/types.h>
 	<sys/socket.h>
@@ -33,7 +33,7 @@
 	<errno.h>
 	<stdbool.h>
 
-1526221774 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
+1526251298 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
 	<string>
 
 1526232841 source:/home/joacko/TallerProgramacionServidor/main.cpp
@@ -49,16 +49,16 @@
 
 1525574562 source:/home/joacko/TallerProgramacionServidor/Thread/ Runnable .cpp
 
-1526233133 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
+1526251130 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
 	"Buffer.h"
 	<iostream>
 
-1526233111 /home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.h
+1526251117 /home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.h
 	<vector>
 	<queue>
 	<string>
 
-1526233153 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
+1526251054 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
 	"Cliente.h"
 	<iostream>
 
