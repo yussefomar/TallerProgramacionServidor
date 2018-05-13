@@ -10,8 +10,8 @@ class Buffer
     public:
         Buffer(int cantidadClientes);
         virtual ~Buffer();
-        unsigned cantidadCodigosEnCanal(int idCanal);
-        std::string popCodigoEnCanal(int idCanal);
+        unsigned cantidadCodigos(int idCanal);
+        std::string popCodigo(int idCanal);
         void pushCodigo(std::string codigo);
 
     protected:

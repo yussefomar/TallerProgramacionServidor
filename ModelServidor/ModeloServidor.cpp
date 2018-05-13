@@ -33,7 +33,7 @@ void ModeloServidor::enviarMensajes()
 {
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        this->clientes[i]->enviarMensajes();
+        this->clientes[i]->enviarMensaje();
     }
     return;
 }
@@ -54,4 +54,14 @@ bool ModeloServidor::clientesEstanConectados() {
         estanConectados |= this->clientes[i]->estaConectado();
     }
     return estanConectados;
+}
+
+
+bool ModeloServidor::hayCambiosPorEnviar() {
+    bool hayCambios = false;
+
+    for(unsigned i = 0; i < this->clientes.size(); ++i) {
+        hayCambios |= this->clientes[i]->hayCambios();
+    }
+    return hayCambios;
 }

@@ -12,6 +12,9 @@ public:
     bool estaConectado();
     std::string recibirCodigoComando();
     void generarMasterSocketFD();
+    void enviarByte(char byte);
+    char recibirByte();
+    void enviarFinDeCambios();
 
 protected:
 

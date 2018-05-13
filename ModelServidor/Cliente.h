@@ -10,8 +10,10 @@ class Cliente
         Cliente(Buffer* buffer);
         virtual ~Cliente();
         void recibirMensaje();
-        void enviarMensajes();
+        void enviarMensaje();
         bool estaConectado();
+        bool hayCambios();
+        void enviarFinDeCambios();
 
     protected:
 

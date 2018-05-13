@@ -19,6 +19,8 @@ class ModeloServidor
 
         bool clientesEstanConectados();
 
+        bool hayCambiosPorEnviar();
+
     protected:
 
     private:

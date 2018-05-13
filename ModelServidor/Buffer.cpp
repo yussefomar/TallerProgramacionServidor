@@ -11,11 +11,11 @@ Buffer::~Buffer()
     //dtor
 }
 
-unsigned Buffer::cantidadCodigosEnCanal(int idCanal) {
+unsigned Buffer::cantidadCodigos(int idCanal) {
     return this->buffers[idCanal].size();
 }
 
-std::string Buffer::popCodigoEnCanal(int idCanal) {
+std::string Buffer::popCodigo(int idCanal) {
     std::string codigo = this->buffers[idCanal].front();
     this->buffers[idCanal].pop();
     return codigo;

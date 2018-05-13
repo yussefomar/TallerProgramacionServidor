@@ -22,6 +22,9 @@
 #define SIZECOMMAND 2
 #define SIZEBYTE 1
 
+#define ENTIDAD 0
+#define EVENTO 1
+
 SocketServidor::SocketServidor()
 {
     if(!SocketServidor::masterSocketFDConectado)
@@ -128,19 +131,11 @@ std::string SocketServidor::recibirCodigoComando()
     std::string comando;
     char byte;
 
-    /*recibimos el primer byte: la entidad*/
-    if(recv(this->socketFD, &byte, SIZEBYTE, MSG_NOSIGNAL) <= 0)
-    {
-        this->socketConectado = false;
-    }
-    comando.push_back(byte);
-
-    /*recibimos el segundo byte: el evento*/
-    if(recv(this->socketFD, &byte, SIZEBYTE, MSG_NOSIGNAL) <= 0)
-    {
-        this->socketConectado = false;
-    }
-    comando.push_back(byte);
+    byte = this->recibirByte();
+    char entidad = byte >> 4;
+    comando.push_back(entidad);
+    char evento = byte & 0x0F;
+    comando.push_back(evento);
 
     return comando;
 }
@@ -149,31 +144,38 @@ void SocketServidor::enviarCodigoComando(std::string comando)
 {
     char byte;
 
-    /*envia el primer byte: la entidad*/
-    byte = comando[0];
-    if(send(this->socketFD, &byte, SIZEBYTE, MSG_NOSIGNAL) <= 0)
-    {
-        this->socketConectado = false;
-    }
-
-    /*recibimos el segundo byte: el evento*/
-    byte = comando[1];
-    if(send(this->socketFD, &byte, SIZEBYTE, MSG_NOSIGNAL) <= 0)
-    {
-        this->socketConectado = false;
-    }
+    char entidad = comando[ENTIDAD];
+    char evento = comando[EVENTO];
+    byte = entidad << 4;
+    byte = byte | evento;
+    this->enviarByte(byte);
 }
 
 void SocketServidor::enviarCantidadCambios(unsigned cantidadCambios)
 {
     char byte = 0x00;
     byte = byte + cantidadCambios;
-    if(send(this->socketFD, &byte, SIZEBYTE, MSG_NOSIGNAL) <= 0)
-    {
-        this->socketConectado = false;
-    }
+    this->enviarByte(byte);
 }
 
-bool SocketServidor::estaConectado() {
+bool SocketServidor::estaConectado()
+{
     return this->socketConectado;
+}
+
+void SocketServidor::enviarByte(char byte)
+{
+    this->socketConectado = send(this->socketFD, &byte, sizeof(char), MSG_NOSIGNAL) > 0;
+}
+
+char SocketServidor::recibirByte() {
+    char byte;
+    this->socketConectado = recv(this->socketFD, &byte, sizeof(char), MSG_NOSIGNAL) > 0;
+    return byte;
+}
+
+void SocketServidor::enviarFinDeCambios() {
+    char byte = 0xFF;
+    this->enviarByte(byte);
+    this->enviarByte(byte);
 }

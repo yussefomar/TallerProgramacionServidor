@@ -16,27 +16,29 @@ Cliente::~Cliente()
 
 int Cliente::contadorClientes = -1;
 
-void Cliente::enviarMensajes()
+void Cliente::enviarMensaje()
 {
-    std::string codigo;
-    unsigned cantidadCambios = this->buffer->cantidadCodigosEnCanal(this->id);
-    this->socket.enviarCantidadCambios(cantidadCambios);
-    for(unsigned i = 0; i < cantidadCambios && this->socket.estaConectado(); ++i)
-    {
-        codigo = this->buffer->popCodigoEnCanal(this->id);
-        this->socket.enviarCodigoComando(codigo);
-    }
+    std::string codigo = this->buffer->popCodigo(this->id);
+    this->socket.enviarCodigoComando(codigo);
 }
 
 void Cliente::recibirMensaje()
 {
-    std::string codigo;
-    codigo = this->socket.recibirCodigoComando();
+    std::string codigo = this->socket.recibirCodigoComando();
     this->buffer->pushCodigo(codigo);
-
 }
 
 bool Cliente::estaConectado()
 {
     return this->socket.estaConectado();
+}
+
+bool Cliente::hayCambios()
+{
+    return this->buffer->cantidadCodigos(this->id) > 0;
+}
+
+void Cliente::enviarFinDeCambios()
+{
+    this->socket.enviarFinDeCambios();
 }
