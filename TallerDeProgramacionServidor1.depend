@@ -36,7 +36,7 @@
 1526251298 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
 	<string>
 
-1526232841 source:/home/joacko/TallerProgramacionServidor/main.cpp
+1526279304 source:/home/joacko/TallerProgramacionServidor/main.cpp
 	<string.h>
 	<iostream>
 	<chrono>
@@ -49,7 +49,7 @@
 
 1525574562 source:/home/joacko/TallerProgramacionServidor/Thread/ Runnable .cpp
 
-1526251130 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
+1526280419 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
 	"Buffer.h"
 	<iostream>
 

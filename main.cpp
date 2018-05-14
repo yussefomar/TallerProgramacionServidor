@@ -5,14 +5,15 @@
 
 #include <ModeloServidor.h>
 
-#define CANTCLT 1
+#define CANTCLT 2
 
 void modoMultiJugador();
 void modoSingleJugador();
 
 int main(int argc, char* args[])
 {
-    modoSingleJugador();
+    //modoSingleJugador();
+    modoMultiJugador();
     return 0;
 }
 
@@ -26,27 +27,10 @@ void modoMultiJugador()
     std::cout << "server with clients" << std::endl;
     unsigned i = 0;
 
-    long double MSPORUPDATE = 89.0;
-    long double tiempoActual = 0.0;
-    long double lapsoDeTiempo = 0.0;
-    long double tiempoPrevio = clock();
-    long double lag = 0.0;
-
     while(modeloServidor.clientesEstanConectados())
     {
-        tiempoActual = clock();
-        lapsoDeTiempo = (tiempoActual - tiempoPrevio) / (CLOCKS_PER_SEC / 1000);
-        tiempoPrevio = tiempoActual;
-        lag += lapsoDeTiempo;
-
         modeloServidor.recibirMensajes();
-        std::cout << "server recv msg" << std::endl;
-        while(lag >= MSPORUPDATE && modeloServidor.hayCambiosPorEnviar())
-        {
-            modeloServidor.enviarMensajes();
-            lag -= MSPORUPDATE;
-
-        }
+        modeloServidor.enviarMensajes();
 
         std::cout << "server send msg" << std::endl;
         std::cout << "ciclo nro: " << i << std::endl;
