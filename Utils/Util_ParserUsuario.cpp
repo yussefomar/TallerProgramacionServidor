@@ -9,23 +9,14 @@ using namespace std;
 
 #include "../Utils/Util_ParserUsuario.h"
 
-//std::vector<Usuario> usuarios;
+;
 std::vector<User> users;
-
-inline bool Util_ParserUsuario::usuarioValido(std::string &name)
-{
-
-        if (name.size() > 99 )
-        {
-           return false;
-        }
-
-}
+std::vector<Servidor> servidor;
 
 std::vector<User> Util_ParserUsuario::read_yaml_Usuario()
 {
 
- std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Configs/Usuarios.yaml");
+ std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
 
 
            for (auto &document : baseNode) {
@@ -35,30 +26,6 @@ std::vector<User> Util_ParserUsuario::read_yaml_Usuario()
         }
 return users;
 
-//Funciona muy bien
-////////////        usuarios.clear();
-////////////        for (auto &document : baseNode)
-////////////        {
-////////////            usuarios.emplace_back(document["us1"]);
-////////////        }
-////////////        for (auto &document : baseNode)
-////////////        {
-////////////            usuarios.emplace_back(document["us2"]);
-////////////        }
-////////////        for (auto &document : baseNode)
-////////////        {
-////////////            usuarios.emplace_back(document["us3"]);
-////////////        }
-////////////        for (auto &document : baseNode)
-////////////        {
-////////////            usuarios.emplace_back(document["us4"]);
-////////////        }
-////////////        for (auto &document : baseNode)
-////////////        {
-////////////            usuarios.emplace_back(document["us5"]);
-////////////        }
-
-
 }
 
 std::vector<User> Util_ParserUsuario::GetUsuarios()
@@ -67,6 +34,33 @@ std::vector<User> Util_ParserUsuario::GetUsuarios()
     {
         this->read_yaml_Usuario();
         return users;
+    }
+    catch(YAML::Exception ex)
+    {
+        //NotifyError("llenarParametrosObtenidos: no se pudo obtener el nodo xxxxxx", "Util_ParserUsuario.cpp");
+       // parametrosObtenidos.esValido = 0;
+    }
+
+}
+
+Servidor Util_ParserUsuario::read_yaml_CantidadClientes()
+{
+std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
+           servidor.clear();
+        for (auto &document : baseNode)
+        {
+            servidor.emplace_back(document["servidor"]);
+        }
+return servidor.at(0);
+
+}
+
+int Util_ParserUsuario::GetCantidadClientes()
+{
+    try
+    {
+        Servidor servidor = this->read_yaml_CantidadClientes();
+        return std::stoi(servidor.get_cantidadClientes());
     }
     catch(YAML::Exception ex)
     {

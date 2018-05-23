@@ -1,0 +1,14 @@
+servidor:
+ cantidadCli: '4'
+
+users:
+ - name: 'User1'
+   password: 'pass1'
+ - name: 'User2'
+   password: 'pass2'
+ - name: 'User3'
+   password: 'pass3'
+ - name: 'User4'
+   password: 'pass4'
+ - name: 'User5'
+   password: 'pass5'

@@ -4,6 +4,9 @@
 #include <thread>
 
 #include <ModeloServidor.h>
+#include "../Utils/Util_Configuracion.h"
+
+using namespace std;
 
 #define CANTCLT 2
 
@@ -12,9 +15,12 @@ void modoSingleJugador();
 
 int main(int argc, char* args[])
 {
-    //modoSingleJugador();
-    modoMultiJugador();
+    modoSingleJugador();
+   // modoMultiJugador();
+    Util_Configuracion configuracion;
+
     return 0;
+
 }
 
 void modoMultiJugador()

@@ -9,26 +9,18 @@
 
 using namespace std;
 
-
-////class Usuario
-////{
-////public:
-////   Usuario(const YAML::Node &node) :
-////        name(node["name"].as<std::string>()),
-////        pass(node["pass"].as<std::string>()) {};
-////    std::string const &get_name() const
-////    {
-////        return name;
-////    };
-////    std::string const &get_pass() const
-////    {
-////        return pass;
-////    };
-////private:
-////    std::string name;
-////    std::string pass;
-////
-////};
+class Servidor
+{
+public:
+    Servidor(const YAML::Node &node) :
+        cantidadClientes(node["cantidadCli"].as<std::string>()) {};
+    std::string const &get_cantidadClientes() const
+    {
+        return cantidadClientes;
+    };
+private:
+    std::string cantidadClientes;
+};
 
 class User {
 public:
@@ -47,9 +39,10 @@ private:
 class Util_ParserUsuario
 {
 public:
-    inline bool usuarioValido(std::string &name);
     std::vector<User> GetUsuarios();
     std::vector<User> read_yaml_Usuario();
+    int GetCantidadClientes();
+    Servidor read_yaml_CantidadClientes();
 private:
 
 
