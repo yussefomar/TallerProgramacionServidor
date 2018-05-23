@@ -74,3 +74,74 @@
 	"Cliente.h"
 	"Buffer.h"
 
+1527034003 source:/home/utnso/Taller/ServidorMartes/main.cpp
+	<string.h>
+	<iostream>
+	<chrono>
+	<thread>
+	<ModeloServidor.h>
+
+1527034003 /home/utnso/Taller/ServidorMartes/ModelServidor/ModeloServidor.h
+	<vector>
+	"Cliente.h"
+	"Buffer.h"
+
+1527034003 /home/utnso/Taller/ServidorMartes/ModelServidor/Cliente.h
+	"Buffer.h"
+	"../SocketServidor/SocketServidor.h"
+
+1527034003 /home/utnso/Taller/ServidorMartes/ModelServidor/Buffer.h
+	<vector>
+	<queue>
+	<string>
+
+1527034003 /home/utnso/Taller/ServidorMartes/SocketServidor/SocketServidor.h
+	<string>
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/ModelServidor/Buffer.cpp
+	"Buffer.h"
+	<iostream>
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/ModelServidor/Cliente.cpp
+	"Cliente.h"
+	<iostream>
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/ModelServidor/ModeloServidor.cpp
+	"ModeloServidor.h"
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/SocketServidor/SocketServidor.cpp
+	"SocketServidor.h"
+	<sys/types.h>
+	<sys/socket.h>
+	<netdb.h>
+	<unistd.h>
+	<stdlib.h>
+	<iostream>
+	<string.h>
+	<stdio.h>
+	<errno.h>
+	<stdbool.h>
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/Thread/ Runnable .cpp
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/Thread/communicatingThread.cpp
+
+1527034003 source:/home/utnso/Taller/ServidorMartes/Thread/Thread.cpp
+
+1527034201 source:/home/utnso/Taller/ServidorMartes/Utils/Util_Configuracion.cpp
+
+1527032934 source:/home/utnso/Taller/ServidorMartes/Utils/Util_ParserUsuario.cpp
+	<yaml-cpp/yaml.h>
+	<yaml-cpp/exceptions.h>
+	<iostream>
+	<fstream>
+	<string>
+	<boost/algorithm/string.hpp>
+	"../Utils/Util_ParserUsuario.h"
+
+1527032365 /home/utnso/Taller/ServidorMartes/Utils/Util_ParserUsuario.h
+	<iostream>
+	<string>
+	<list>
+	<yaml-cpp/yaml.h>
+
