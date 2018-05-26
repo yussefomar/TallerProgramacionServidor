@@ -16,15 +16,17 @@ std::vector<Servidor> servidor;
 std::vector<User> Util_ParserUsuario::read_yaml_Usuario()
 {
 
- std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
+    std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
 
 
-           for (auto &document : baseNode) {
-            std::for_each(document["users"].begin(), document["users"].end(), [&users](YAML::Node user) {
-                users.emplace_back(user);
-            });
-        }
-return users;
+    for (auto &document : baseNode)
+    {
+        std::for_each(document["users"].begin(), document["users"].end(), [&users](YAML::Node user)
+        {
+            users.emplace_back(user);
+        });
+    }
+    return users;
 
 }
 
@@ -38,20 +40,20 @@ std::vector<User> Util_ParserUsuario::GetUsuarios()
     catch(YAML::Exception ex)
     {
         //NotifyError("llenarParametrosObtenidos: no se pudo obtener el nodo xxxxxx", "Util_ParserUsuario.cpp");
-       // parametrosObtenidos.esValido = 0;
+        // parametrosObtenidos.esValido = 0;
     }
 
 }
 
 Servidor Util_ParserUsuario::read_yaml_CantidadClientes()
 {
-std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
-           servidor.clear();
-        for (auto &document : baseNode)
-        {
-            servidor.emplace_back(document["servidor"]);
-        }
-return servidor.at(0);
+    std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
+    servidor.clear();
+    for (auto &document : baseNode)
+    {
+        servidor.emplace_back(document["servidor"]);
+    }
+    return servidor.at(0);
 
 }
 
@@ -65,7 +67,7 @@ int Util_ParserUsuario::GetCantidadClientes()
     catch(YAML::Exception ex)
     {
         //NotifyError("llenarParametrosObtenidos: no se pudo obtener el nodo xxxxxx", "Util_ParserUsuario.cpp");
-       // parametrosObtenidos.esValido = 0;
+        // parametrosObtenidos.esValido = 0;
     }
 
 }

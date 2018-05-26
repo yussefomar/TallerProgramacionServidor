@@ -14,13 +14,13 @@ using namespace std;
 
 class Util_Configuracion
 {
-	public:
-         Util_Configuracion(/**ModeloServidor* modeloServidor**/);
-         virtual ~Util_Configuracion();
-         void close();
+public:
+    Util_Configuracion(/**ModeloServidor* modeloServidor**/);
+    virtual ~Util_Configuracion();
+    void close();
 
-    private:
-        //ModeloServidor* modeloServidor;
+private:
+    //ModeloServidor* modeloServidor;
 
 };
 

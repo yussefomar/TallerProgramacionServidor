@@ -7,14 +7,10 @@ class SocketServidor
 public:
     SocketServidor();
     virtual ~SocketServidor();
-    void enviarCodigoComando(char codigo);
-    void enviarCantidadCambios(unsigned cantidadCambios);
     bool estaConectado();
-    char recibirCodigoComando();
     void generarMasterSocketFD();
     void enviarByte(char byte);
     char recibirByte();
-    void enviarFinDeCambios();
 
 protected:
 

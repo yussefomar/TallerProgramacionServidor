@@ -14,7 +14,7 @@
 
 #include <stdbool.h>
 
-#define LOCALHOST "localhost" //puede ser NULL tambien
+#define LOCALHOST "192.168.0.29" //puede ser NULL tambien
 #define PUERTOSERVER "8080"
 #define FORSKTOPT 1
 #define MAXCONECT 20
@@ -126,22 +126,6 @@ void SocketServidor::generarMasterSocketFD()
     SocketServidor::masterSocketFDConectado = 1;
 }
 
-char SocketServidor::recibirCodigoComando()
-{
-    return this->recibirByte();
-}
-
-void SocketServidor::enviarCodigoComando(char comando)
-{
-    this->enviarByte(comando);
-}
-
-void SocketServidor::enviarCantidadCambios(unsigned cantidadCambios)
-{
-    char byte = 0x00;
-    byte = byte + cantidadCambios;
-    this->enviarByte(byte);
-}
 
 bool SocketServidor::estaConectado()
 {
@@ -153,14 +137,9 @@ void SocketServidor::enviarByte(char byte)
     this->socketConectado = send(this->socketFD, &byte, sizeof(char), MSG_NOSIGNAL) > 0;
 }
 
-char SocketServidor::recibirByte() {
+char SocketServidor::recibirByte()
+{
     char byte;
     this->socketConectado = recv(this->socketFD, &byte, sizeof(char), MSG_NOSIGNAL) > 0;
     return byte;
-}
-
-void SocketServidor::enviarFinDeCambios() {
-    char byte = 0xFF;
-    this->enviarByte(byte);
-    this->enviarByte(byte);
 }

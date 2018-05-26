@@ -19,12 +19,12 @@ int Cliente::contadorClientes = -1;
 void Cliente::enviarMensaje()
 {
     char codigo = this->buffer->popCodigo(this->id);
-    this->socket.enviarCodigoComando(codigo);
+    this->socket.enviarByte(codigo);
 }
 
 void Cliente::recibirMensaje()
 {
-    char codigo = this->socket.recibirCodigoComando();
+    char codigo = this->socket.recibirByte();
     this->buffer->pushCodigo(codigo);
 }
 
@@ -38,7 +38,7 @@ bool Cliente::hayCambios()
     return this->buffer->cantidadCodigos(this->id) > 0;
 }
 
-void Cliente::enviarFinDeCambios()
-{
-    this->socket.enviarFinDeCambios();
+void Cliente::enviarId(unsigned id) {
+    char idCaracter = id;
+    this->socket.enviarByte(idCaracter);
 }

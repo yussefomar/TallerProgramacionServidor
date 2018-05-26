@@ -13,8 +13,8 @@ Util_Configuracion::Util_Configuracion()
 {
 //   this->Attach(loggerObserver);
 //   parser.Attach(loggerObserver);
-   try
-   {
+    try
+    {
         std::vector<User> users = parser.GetUsuarios();
         int cantidadClientes = parser.GetCantidadClientes();
 
@@ -26,7 +26,7 @@ Util_Configuracion::Util_Configuracion()
     }
     catch(...)
     {
-       // NotifyError("Error desconocido que no se ha podido especificar.", "Util_Configuracion.cpp");
+        // NotifyError("Error desconocido que no se ha podido especificar.", "Util_Configuracion.cpp");
     }
 }
 

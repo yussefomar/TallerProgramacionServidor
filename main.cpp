@@ -8,15 +8,15 @@
 
 using namespace std;
 
-#define CANTCLT 2
+#define CANTCLT 1
 
 void modoMultiJugador();
 void modoSingleJugador();
 
 int main(int argc, char* args[])
 {
-    modoSingleJugador();
-   // modoMultiJugador();
+    //modoSingleJugador();
+    modoMultiJugador();
     Util_Configuracion configuracion;
 
     return 0;

@@ -7,25 +7,25 @@
 
 class ModeloServidor
 {
-    public:
-        ModeloServidor(int cantidadMaxClientes);
-        virtual ~ModeloServidor();
+public:
+    ModeloServidor(int cantidadMaxClientes);
+    virtual ~ModeloServidor();
 
-        void enviarMensajes();
-        void recibirMensajes();
+    void enviarMensajes();
+    void recibirMensajes();
 
-        void aceptarClientesEntrantes();
-        void rechazarClientesEntrantes();
+    void aceptarClientesEntrantes();
+    void rechazarClientesEntrantes();
 
-        bool clientesEstanConectados();
+    bool clientesEstanConectados();
 
-        bool hayCambiosPorEnviar();
+    bool hayCambiosPorEnviar();
 
-    protected:
+protected:
 
-    private:
-        Buffer buffer;
-        std::vector<Cliente*> clientes;
+private:
+    Buffer buffer;
+    std::vector<Cliente*> clientes;
 };
 
 #endif // MODELOSERVIDOR_H

@@ -20,6 +20,7 @@ void ModeloServidor::aceptarClientesEntrantes()
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
         this->clientes[i] = new Cliente(&(this->buffer));
+        this->clientes[i]->enviarId(i);
     }
 }
 
@@ -47,20 +48,24 @@ void ModeloServidor::recibirMensajes()
     return;
 }
 
-bool ModeloServidor::clientesEstanConectados() {
+bool ModeloServidor::clientesEstanConectados()
+{
     bool estanConectados = false;
 
-    for(unsigned i = 0; i < this->clientes.size(); ++i) {
+    for(unsigned i = 0; i < this->clientes.size(); ++i)
+    {
         estanConectados |= this->clientes[i]->estaConectado();
     }
     return estanConectados;
 }
 
 
-bool ModeloServidor::hayCambiosPorEnviar() {
+bool ModeloServidor::hayCambiosPorEnviar()
+{
     bool hayCambios = false;
 
-    for(unsigned i = 0; i < this->clientes.size(); ++i) {
+    for(unsigned i = 0; i < this->clientes.size(); ++i)
+    {
         hayCambios |= this->clientes[i]->hayCambios();
     }
     return hayCambios;

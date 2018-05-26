@@ -6,22 +6,22 @@
 
 class Cliente
 {
-    public:
-        Cliente(Buffer* buffer);
-        virtual ~Cliente();
-        void recibirMensaje();
-        void enviarMensaje();
-        bool estaConectado();
-        bool hayCambios();
-        void enviarFinDeCambios();
+public:
+    Cliente(Buffer* buffer);
+    virtual ~Cliente();
+    void recibirMensaje();
+    void enviarMensaje();
+    bool estaConectado();
+    bool hayCambios();
+    void enviarId(unsigned id);
 
-    protected:
+protected:
 
-    private:
-        static int contadorClientes;
-        int id;
-        Buffer* buffer;
-        SocketServidor socket;
+private:
+    static int contadorClientes;
+    int id;
+    Buffer* buffer;
+    SocketServidor socket;
 };
 
 #endif // CLIENTE_H

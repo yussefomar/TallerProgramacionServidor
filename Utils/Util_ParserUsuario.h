@@ -22,16 +22,23 @@ private:
     std::string cantidadClientes;
 };
 
-class User {
+class User
+{
 public:
-	User(const YAML::Node &node) :
-		name(node["name"].as<std::string>()),
-		password(node["password"].as<std::string>()) {};
-	std::string const &get_name() const { return name; };
-	std::string const &get_password() const { return password; };
+    User(const YAML::Node &node) :
+        name(node["name"].as<std::string>()),
+        password(node["password"].as<std::string>()) {};
+    std::string const &get_name() const
+    {
+        return name;
+    };
+    std::string const &get_password() const
+    {
+        return password;
+    };
 private:
-	std::string name;
-	std::string password;
+    std::string name;
+    std::string password;
 };
 
 
