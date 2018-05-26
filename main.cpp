@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define CANTCLT 1
+#define CANTCLT 2
 
 void modoMultiJugador();
 void modoSingleJugador();
