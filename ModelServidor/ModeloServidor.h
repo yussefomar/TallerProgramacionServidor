@@ -22,6 +22,8 @@ public:
 
     bool hayCambiosPorEnviar();
 
+    void recibirInformacion();
+
 protected:
 
 private:

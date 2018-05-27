@@ -70,3 +70,15 @@ bool ModeloServidor::hayCambiosPorEnviar()
     }
     return hayCambios;
 }
+
+void ModeloServidor::recibirInformacion() {
+//    for(unsigned i = 0; i < this->clientes.size(); ++i)
+//    {
+//        std::string usuario = this->clientes[i]->recibirUsuario();
+//        this->verificarUsuario(usuario, i); //verifico si el usuario esta en bdd o esta repetido
+//        //mandar codigo con estos posibles sucesos y que el usuario se encargue.
+//        std::string password = this->clientes[i]->recibirUsuario();
+//        this->verificarPassword(usuario, password, i); //verifico si el password corresponde con el usuario. en caso de erro comunicarlo.
+//    }
+    return;
+}

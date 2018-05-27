@@ -36,7 +36,7 @@
 1527369328 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
 	<string>
 
-1527376623 source:/home/joacko/TallerProgramacionServidor/main.cpp
+1527446351 source:/home/joacko/TallerProgramacionServidor/main.cpp
 	<string.h>
 	<iostream>
 	<chrono>
@@ -70,7 +70,7 @@
 1527366622 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
 
-1527376643 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527446382 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
 	"Buffer.h"
