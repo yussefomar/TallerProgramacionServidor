@@ -17,6 +17,7 @@ public:
     void aceptarClientesEntrantes();
     void rechazarClientesEntrantes();
 
+
     bool clientesEstanConectados();
 
     bool hayCambiosPorEnviar();
