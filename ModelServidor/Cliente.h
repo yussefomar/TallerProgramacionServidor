@@ -18,6 +18,8 @@ public:
     std::string recibirPassword();
     void enviarRespuesta(char codigo);
     std::string hashear(char codigo);
+    std::string nombreUsuario;
+    std::string passwordUsuario;
 
 protected:
 

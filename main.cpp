@@ -16,8 +16,8 @@ void modoSingleJugador();
 int main(int argc, char* args[])
 {
     //modoSingleJugador();
+    //Util_Configuracion configuracion;
     modoMultiJugador();
-    Util_Configuracion configuracion;
 
     return 0;
 

@@ -177,7 +177,7 @@
 	<boost/algorithm/string.hpp>
 	"../Utils/Util_ParserUsuario.h"
 
-1527452260 source:/home/andres/Taller/TallerProgramacionServidor/main.cpp
+1527466239 source:/home/andres/Taller/TallerProgramacionServidor/main.cpp
 	<string.h>
 	<iostream>
 	<chrono>
@@ -185,12 +185,13 @@
 	<ModeloServidor.h>
 	"../Utils/Util_Configuracion.h"
 
-1527466175 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527468425 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
 	"Buffer.h"
+	"../Utils/Util_Configuracion.h"
 
-1527466090 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/Cliente.h
+1527467806 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/Cliente.h
 	"Buffer.h"
 	"../SocketServidor/SocketServidor.h"
 
@@ -260,6 +261,6 @@
 	<boost/algorithm/string.hpp>
 	"../Utils/Util_ParserUsuario.h"
 
-1527466197 source:/home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+1527468321 source:/home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
 
