@@ -23,6 +23,8 @@ public:
     bool hayCambiosPorEnviar();
 
     void recibirInformacion();
+    void verificarUsuario(std::string usuario, unsigned i);
+    void verificarPassword(std::string usuario, std::string password, unsigned i);
 
 protected:
 

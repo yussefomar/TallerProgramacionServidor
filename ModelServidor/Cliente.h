@@ -14,6 +14,10 @@ public:
     bool estaConectado();
     bool hayCambios();
     void enviarId(unsigned id);
+    std::string recibirUsuario();
+    std::string recibirPassword();
+    void enviarRespuesta(char codigo);
+    std::string hashear(char codigo);
 
 protected:
 
