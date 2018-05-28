@@ -27,9 +27,10 @@ void modoMultiJugador()
 {
     /*Aun no esta preparado, ni muy pensado*/
     std::cout << "server run" << std::endl;
-    ModeloServidor modeloServidor(CANTCLT);
+    ModeloServidor modeloServidor;
+    Util_Configuracion configuracion(&modeloServidor);
     modeloServidor.aceptarClientesEntrantes();
-    //modeloServidor.recibirInformacion();
+    //modeloServidor.recibirInformacion1();
     modeloServidor.rechazarClientesEntrantes();
     std::cout << "server with clients" << std::endl;
     unsigned i = 0;

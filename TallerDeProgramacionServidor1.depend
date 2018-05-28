@@ -177,7 +177,7 @@
 	<boost/algorithm/string.hpp>
 	"../Utils/Util_ParserUsuario.h"
 
-1527468491 source:/home/andres/Taller/TallerProgramacionServidor/main.cpp
+1527530932 source:/home/andres/Taller/TallerProgramacionServidor/main.cpp
 	<string.h>
 	<iostream>
 	<chrono>
@@ -185,10 +185,9 @@
 	<ModeloServidor.h>
 	"../Utils/Util_Configuracion.h"
 
-1527509565 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527530617 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
-	"Buffer.h"
 
 1527507241 /home/andres/Taller/TallerProgramacionServidor/ModelServidor/Cliente.h
 	"Buffer.h"
@@ -242,7 +241,7 @@
 
 1527452260 source:/home/andres/Taller/TallerProgramacionServidor/Thread/Thread.cpp
 
-1527509731 source:/home/andres/Taller/TallerProgramacionServidor/Utils/Util_Configuracion.cpp
+1527531108 source:/home/andres/Taller/TallerProgramacionServidor/Utils/Util_Configuracion.cpp
 	<yaml-cpp/yaml.h>
 	<yaml-cpp/exceptions.h>
 	<iostream>
@@ -262,6 +261,6 @@
 	<boost/algorithm/string.hpp>
 	"../Utils/Util_ParserUsuario.h"
 
-1527509332 source:/home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+1527530805 source:/home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
 

@@ -3,12 +3,12 @@
 
 #include <vector>
 #include "Cliente.h"
-#include "Buffer.h"
+/*#include "Buffer.h"*/
 
 class ModeloServidor
 {
 public:
-    ModeloServidor(int cantidadMaxClientes);
+    ModeloServidor();
     virtual ~ModeloServidor();
     void enviarMensajes();
     void recibirMensajes();
@@ -22,11 +22,12 @@ public:
     char hashear(std::string unString);
     std::vector<char> usuariosNombre;
     std::vector<char> usuariosPassword;
+    void setClientesPermitidos(int cantidadMaxClientes);
 
 protected:
 
 private:
-    Buffer buffer;
+    Buffer* buffer;
     std::vector<Cliente*> clientes;
     int cantidadClientes;
 };

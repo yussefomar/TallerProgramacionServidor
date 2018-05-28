@@ -6,9 +6,7 @@
 #define LI_CREDENCIALES_OK 0X0E //CREDENCIALES CORRECTAS.
 #define LI_CREDENCIALES_ERROR 0X0F //CREDENCIALES INCORRECTAS.
 
-ModeloServidor::ModeloServidor(int cantidadClientes) :
-    buffer(cantidadClientes),
-    clientes(std::vector<Cliente*>(cantidadClientes))
+ModeloServidor::ModeloServidor()
 {
 
 }
@@ -19,13 +17,14 @@ ModeloServidor::~ModeloServidor()
     {
         delete this->clientes[i];
     }
+    delete this->buffer;
 }
 
 void ModeloServidor::aceptarClientesEntrantes()
 {
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        this->clientes[i] = new Cliente(&(this->buffer));
+        this->clientes[i] = new Cliente(this->buffer);
         this->clientes[i]->enviarId(i);
     }
 }
@@ -144,4 +143,10 @@ char ModeloServidor::hashear(std::string unString)
         code = code | unString[i];
     }
     return code;
+}
+
+void ModeloServidor::setClientesPermitidos(int cantidadMaxClientes)
+{
+    this->buffer = new Buffer(cantidadMaxClientes);
+    this->clientes = (std::vector<Cliente*>(cantidadMaxClientes));
 }
