@@ -5,8 +5,6 @@
 #include "Cliente.h"
 #include "Buffer.h"
 
-#include "../Utils/Util_Configuracion.h"
-
 class ModeloServidor
 {
 public:
@@ -19,15 +17,17 @@ public:
     bool clientesEstanConectados();
     bool hayCambiosPorEnviar();
     void recibirInformacion();
-    void verificarUsuario(std::string usuario, unsigned i);
-    void verificarPassword(std::string usuario, std::string password, unsigned i);
+    void verificarUsuario(char usuario, unsigned i);
+    void verificarPassword(char usuario, char password, unsigned i);
+    char hashear(std::string unString);
+    std::vector<char> usuariosNombre;
+    std::vector<char> usuariosPassword;
 
 protected:
 
 private:
     Buffer buffer;
     std::vector<Cliente*> clientes;
-    std::vector<User*> usuarios;
     int cantidadClientes;
 };
 

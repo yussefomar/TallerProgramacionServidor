@@ -6,10 +6,11 @@
 #include <sstream>
 #include <boost/algorithm/string.hpp>
 #include "../Utils/Util_Configuracion.h"
+#include "../ModelServidor/ModeloServidor.h"
 
 Util_ParserUsuario parser;
 /**ModeloServidor* model, Util_LoggerObserver* loggerObserver**/
-Util_Configuracion::Util_Configuracion()
+Util_Configuracion::Util_Configuracion(ModeloServidor* model)
 {
 //   this->Attach(loggerObserver);
 //   parser.Attach(loggerObserver);
@@ -17,12 +18,17 @@ Util_Configuracion::Util_Configuracion()
     {
         std::vector<User> users = parser.GetUsuarios();
         int cantidadClientes = parser.GetCantidadClientes();
-
-        //this->modeloServidor = model;
         //METODOS PARA CONFIGURAR EL MODEL
         //this->model->SetUsuarios(users);
         //this->model->setIp(parametros.ip);
-
+        this->modeloServidor = model;
+        this->modeloServidor->usuariosNombre = std::vector<char>(users.size());//(users.size());
+        this->modeloServidor->usuariosPassword = std::vector<char>(users.size());
+        for(unsigned j = 0; j < users.size(); ++j)
+        {
+            this->modeloServidor->usuariosNombre[j] = this->modeloServidor->hashear(users[j].get_name());
+            this->modeloServidor->usuariosPassword[j] = this->modeloServidor->hashear(users[j].get_password());
+        }
     }
     catch(...)
     {
@@ -37,7 +43,6 @@ void Util_Configuracion::close()
 
 Util_Configuracion::~Util_Configuracion()
 {
-
     this->close();
 }
 

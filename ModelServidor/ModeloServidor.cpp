@@ -81,15 +81,15 @@ void ModeloServidor::recibirInformacion()
 {
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        std::string usuario = this->clientes[i]->recibirUsuario();
+        char usuario = this->clientes[i]->recibirUsuario();
         this->verificarUsuario(usuario, i);
-        std::string password = this->clientes[i]->recibirPassword();
+        char password = this->clientes[i]->recibirPassword();
         this->verificarPassword(usuario, password, i);
     }
     return;
 }
 
-void ModeloServidor::verificarUsuario(std::string usuario, unsigned i)
+void ModeloServidor::verificarUsuario(char usuario, unsigned i)
 {
     for(unsigned j = 0; j < this->clientes.size(); ++j)
     {
@@ -104,11 +104,12 @@ void ModeloServidor::verificarUsuario(std::string usuario, unsigned i)
             }
         }
     }
-    for(unsigned j = 0; j < this->usuarios.size(); ++j)
+    for(unsigned j = 0; j < this->usuariosNombre.size(); ++j)
     {
-        if(this->usuarios[j]->get_name() == usuario)
+        if(this->usuariosNombre[j] == usuario)
         {
-            //0X0B NOMBRE CORRECTO Y LIBRE.
+            //0X0B NOMBRE CORRECTO Y LIBRE. //ACTUALIZO EL CLIENTE.
+            this->clientes[i]->nombreUsuario = usuario;
             this->clientes[i]->enviarRespuesta(0X0B);
             return;
         }
@@ -117,17 +118,30 @@ void ModeloServidor::verificarUsuario(std::string usuario, unsigned i)
     this->clientes[i]->enviarRespuesta(0X0C);
 }
 
-void ModeloServidor::verificarPassword(std::string usuario, std::string password, unsigned i)
+void ModeloServidor::verificarPassword(char usuario, char password, unsigned i)
 {
-    for(unsigned j = 0; j < this->usuarios.size(); ++j)
+    //EL INDICE DEL USUARIO Y EL PASSWORD POR LÓGICA DEBEN DE COINCIDIR.-
+    for(unsigned j = 0; j < this->usuariosNombre.size(); ++j)
     {
-        if(this->usuarios[j]->get_name() == usuario && this->usuarios[j]->get_password() == password)
+        if(this->usuariosNombre[j] == usuario && this->usuariosPassword[j] == password)
         {
             //0X0E NOMBRE CORRECTO Y CONTRASEÑA CORRECTA.
             this->clientes[i]->enviarRespuesta(0X0E);
             return;
         }
     }
-    // 0X0F CREDENCIALES CORRECTAS.
+    // 0X0F CREDENCIALES CORRECTAS. //ACTUALIZO EL CLIENTE.
+    this->clientes[i]->nombreUsuario = usuario;
+    this->clientes[i]->passwordUsuario = password;
     this->clientes[i]->enviarRespuesta(0X0F);
+}
+
+char ModeloServidor::hashear(std::string unString)
+{
+    char code;
+    for(unsigned i = 0; i < unString.size(); ++i)
+    {
+        code = code | unString[i];
+    }
+    return code;
 }
