@@ -157,11 +157,18 @@ char ModeloServidor::hashear(std::string unString)
 {
     char code = 0X00;
     char caracter = 0X00;
+    /*for(unsigned i = 0; i < unString.size(); ++i)
+    {
+        caracter = unString[i];
+        code = code | caracter << 1;
+    }*/
+    int hasha = 7;
     for(unsigned i = 0; i < unString.size(); ++i)
     {
         caracter = unString[i];
-        code = code | caracter;
+        hasha = hasha*31 + caracter;
     }
+    code = hasha;
     return code;
 }
 
