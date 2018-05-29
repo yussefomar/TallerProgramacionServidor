@@ -150,3 +150,9 @@ void ModeloServidor::setClientesPermitidos(int cantidadMaxClientes)
     this->buffer = new Buffer(cantidadMaxClientes);
     this->clientes = (std::vector<Cliente*>(cantidadMaxClientes));
 }
+
+void ModeloServidor::setIpYPuerto(std::string ip, std::string puerto)
+{
+    this->ip = ip;
+    this->puerto = puerto;
+}

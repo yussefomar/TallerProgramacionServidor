@@ -23,6 +23,7 @@ public:
     std::vector<char> usuariosNombre;
     std::vector<char> usuariosPassword;
     void setClientesPermitidos(int cantidadMaxClientes);
+    void setIpYPuerto(std::string ip, std::string puerto);
 
 protected:
 
@@ -30,6 +31,8 @@ private:
     Buffer* buffer;
     std::vector<Cliente*> clientes;
     int cantidadClientes;
+    std::string ip;
+    std::string puerto;
 };
 
 #endif // MODELOSERVIDOR_H

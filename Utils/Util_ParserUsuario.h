@@ -41,15 +41,34 @@ private:
     std::string password;
 };
 
-
+class Conexion
+{
+public:
+    Conexion(const YAML::Node &node) :
+        ip(node["ip"].as<std::string>()),
+        puerto(node["puerto"].as<std::string>()) {};
+    std::string const &get_ip() const
+    {
+        return ip;
+    };
+    std::string const &get_puerto() const
+    {
+        return puerto;
+    };
+private:
+    std::string ip;
+    std::string puerto;
+};
 
 class Util_ParserUsuario
 {
 public:
     std::vector<User> GetUsuarios();
-    std::vector<User> read_yaml_Usuario();
     int GetCantidadClientes();
+    Conexion  getIpPuerto();
     Servidor read_yaml_CantidadClientes();
+    Conexion read_yaml_Conexion();
+    std::vector<User> read_yaml_Usuario();
 private:
 
 

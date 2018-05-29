@@ -12,3 +12,8 @@ users:
    password: 'pass4'
  - name: 'User5'
    password: 'pass5'
+
+
+conexion:
+ ip: '192.168.10.20'
+ puerto: '8080'

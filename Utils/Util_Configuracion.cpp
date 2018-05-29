@@ -18,13 +18,14 @@ Util_Configuracion::Util_Configuracion(ModeloServidor* model)
     {
         std::vector<User> users = parser.GetUsuarios();
         int cantidadClientes = parser.GetCantidadClientes();
+        Conexion conexion = parser.getIpPuerto();
         //METODOS PARA CONFIGURAR EL MODEL
         //this->model->SetUsuarios(users);
-        //this->model->setIp(parametros.ip);
         this->modeloServidor = model;
         this->modeloServidor->setClientesPermitidos(cantidadClientes);
         this->modeloServidor->usuariosNombre = std::vector<char>(users.size());//(users.size());
         this->modeloServidor->usuariosPassword = std::vector<char>(users.size());
+        this->modeloServidor->setIpYPuerto(conexion.get_ip(), conexion.get_puerto());
         for(unsigned j = 0; j < users.size(); ++j)
         {
             this->modeloServidor->usuariosNombre[j] = this->modeloServidor->hashear(users[j].get_name());

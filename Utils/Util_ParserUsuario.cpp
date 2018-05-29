@@ -12,6 +12,7 @@ using namespace std;
 ;
 std::vector<User> users;
 std::vector<Servidor> servidor;
+std::vector<Conexion> conexion;
 
 std::vector<User> Util_ParserUsuario::read_yaml_Usuario()
 {
@@ -72,4 +73,29 @@ int Util_ParserUsuario::GetCantidadClientes()
 
 }
 
+Conexion Util_ParserUsuario::read_yaml_Conexion()
+{
 
+    std::vector<YAML::Node> baseNode = YAML::LoadAllFromFile("./Config/Usuarios.yaml");
+    conexion.clear();
+    for (auto &document : baseNode)
+    {
+        conexion.emplace_back(document["conexion"]);
+    }
+    return conexion.at(0);
+}
+
+Conexion Util_ParserUsuario::getIpPuerto()
+{
+    try
+    {
+        this->read_yaml_Conexion();
+        return conexion.at(0);
+    }
+    catch(YAML::Exception ex)
+    {
+        //NotifyError("llenarParametrosObtenidos: no se pudo obtener el nodo xxxxxx", "Util_ParserUsuario.cpp");
+        // parametrosObtenidos.esValido = 0;
+    }
+
+}
