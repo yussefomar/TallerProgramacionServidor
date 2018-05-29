@@ -14,7 +14,7 @@
 
 #include <stdbool.h>
 
-#define LOCALHOST "192.168.0.29" //puede ser NULL tambien
+#define LOCALHOST "192.168.0.100" //"192.168.0.29" //puede ser NULL tambien
 #define PUERTOSERVER "8080"
 #define FORSKTOPT 1
 #define MAXCONECT 20

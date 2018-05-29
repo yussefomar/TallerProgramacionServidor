@@ -1,16 +1,16 @@
 servidor:
- cantidadCli: '4'
+ cantidadCli: '1'
 
 users:
- - name: 'User1'
+ - name: 'user1'
    password: 'pass1'
- - name: 'User2'
+ - name: 'user2'
    password: 'pass2'
- - name: 'User3'
+ - name: 'user3'
    password: 'pass3'
- - name: 'User4'
+ - name: 'user4'
    password: 'pass4'
- - name: 'User5'
+ - name: 'user5'
    password: 'pass5'
 
 

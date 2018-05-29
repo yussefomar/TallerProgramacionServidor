@@ -78,17 +78,33 @@ bool ModeloServidor::hayCambiosPorEnviar()
 
 void ModeloServidor::recibirInformacion()
 {
-    for(unsigned i = 0; i < this->clientes.size(); ++i)
+    bool sinUsuario = true;
+    bool sinPass = true;
+    char usuario;
+    char password;
+    while( sinUsuario || sinPass )
     {
-        char usuario = this->clientes[i]->recibirUsuario();
-        this->verificarUsuario(usuario, i);
-        char password = this->clientes[i]->recibirPassword();
-        this->verificarPassword(usuario, password, i);
+        if(sinUsuario)
+        {
+            for(unsigned i = 0; i < this->clientes.size(); ++i)
+            {
+                usuario = this->clientes[i]->recibirUsuario();
+                sinUsuario = this->verificarUsuario(usuario, i);
+            }
+        }
+        else if((!sinUsuario) && sinPass)
+        {
+            for(unsigned i = 0; i < this->clientes.size(); ++i)
+            {
+                password = this->clientes[i]->recibirPassword();
+                sinPass = this->verificarPassword(usuario, password, i);
+            }
+        }
     }
     return;
 }
 
-void ModeloServidor::verificarUsuario(char usuario, unsigned i)
+bool ModeloServidor::verificarUsuario(char usuario, unsigned i)
 {
     for(unsigned j = 0; j < this->clientes.size(); ++j)
     {
@@ -99,7 +115,7 @@ void ModeloServidor::verificarUsuario(char usuario, unsigned i)
             {
                 //0X0D NOMBRE OCUPADO.
                 this->clientes[i]->enviarRespuesta(0X0D);
-                return;
+                return true;
             }
         }
     }
@@ -110,14 +126,15 @@ void ModeloServidor::verificarUsuario(char usuario, unsigned i)
             //0X0B NOMBRE CORRECTO Y LIBRE. //ACTUALIZO EL CLIENTE.
             this->clientes[i]->nombreUsuario = usuario;
             this->clientes[i]->enviarRespuesta(0X0B);
-            return;
+            return false;
         }
     }
     // 0X0C NOMBRE INCORRECTO.
     this->clientes[i]->enviarRespuesta(0X0C);
+    return true;
 }
 
-void ModeloServidor::verificarPassword(char usuario, char password, unsigned i)
+bool ModeloServidor::verificarPassword(char usuario, char password, unsigned i)
 {
     //EL INDICE DEL USUARIO Y EL PASSWORD POR LÓGICA DEBEN DE COINCIDIR.-
     for(unsigned j = 0; j < this->usuariosNombre.size(); ++j)
@@ -126,13 +143,14 @@ void ModeloServidor::verificarPassword(char usuario, char password, unsigned i)
         {
             //0X0E NOMBRE CORRECTO Y CONTRASEÑA CORRECTA.
             this->clientes[i]->enviarRespuesta(0X0E);
-            return;
+            return false;
         }
     }
     // 0X0F CREDENCIALES CORRECTAS. //ACTUALIZO EL CLIENTE.
     this->clientes[i]->nombreUsuario = usuario;
     this->clientes[i]->passwordUsuario = password;
     this->clientes[i]->enviarRespuesta(0X0F);
+    return true;
 }
 
 char ModeloServidor::hashear(std::string unString)

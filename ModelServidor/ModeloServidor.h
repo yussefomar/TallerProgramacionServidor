@@ -17,8 +17,8 @@ public:
     bool clientesEstanConectados();
     bool hayCambiosPorEnviar();
     void recibirInformacion();
-    void verificarUsuario(char usuario, unsigned i);
-    void verificarPassword(char usuario, char password, unsigned i);
+    bool verificarUsuario(char usuario, unsigned i);
+    bool verificarPassword(char usuario, char password, unsigned i);
     char hashear(std::string unString);
     std::vector<char> usuariosNombre;
     std::vector<char> usuariosPassword;
