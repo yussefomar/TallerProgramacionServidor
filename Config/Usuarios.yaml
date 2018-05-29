@@ -2,16 +2,16 @@ servidor:
  cantidadCli: '1'
 
 users:
- - name: 'user1'
-   password: 'pass1'
- - name: 'user2'
-   password: 'pass2'
- - name: 'user3'
-   password: 'pass3'
- - name: 'user4'
-   password: 'pass4'
- - name: 'user5'
-   password: 'pass5'
+ - name: 'martinez'
+   password: 'racing'
+ - name: 'mascherano'
+   password: 'river'
+ - name: 'riquelme'
+   password: 'boca'
+ - name: 'barco'
+   password: 'independiente'
+ - name: 'salas'
+   password: 'allboys'
 
 
 conexion:

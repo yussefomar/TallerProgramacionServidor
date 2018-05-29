@@ -155,10 +155,12 @@ bool ModeloServidor::verificarPassword(char usuario, char password, unsigned i)
 
 char ModeloServidor::hashear(std::string unString)
 {
-    char code;
+    char code = 0X00;
+    char caracter = 0X00;
     for(unsigned i = 0; i < unString.size(); ++i)
     {
-        code = code | unString[i];
+        caracter = unString[i];
+        code = code | caracter;
     }
     return code;
 }
