@@ -24,6 +24,7 @@ public:
     std::vector<char> usuariosPassword;
     void setClientesPermitidos(int cantidadMaxClientes);
     void setIpYPuerto(std::string ip, std::string puerto);
+    void consultarInicio();
 
 protected:
 

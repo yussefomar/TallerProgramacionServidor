@@ -106,6 +106,20 @@ void ModeloServidor::recibirInformacion()
     return;
 }
 
+void ModeloServidor::consultarInicio()
+{
+    char consulta = 0X00;
+    for(unsigned i = 0; i < this->clientes.size(); ++i)
+    {
+        //REUTILIZO RECIBIRUSUARIO PORQUE SOLO RECIBE 1 BYTE.
+        //EL CODIGO DE CONSULTA SERIA PARA VER SI PREGUNTA POR EL ARRANQUE.
+        consulta = this->clientes[i]->recibirUsuario();
+        //A PRIORI NO SERIA NECESARIO UNA LOGICA PARA VER SI TODOS TERMINARON. CREO.
+        this->clientes[i]->enviarRespuesta(LI_INICIO_OK);
+    }
+    return;
+}
+
 bool ModeloServidor::verificarUsuario(char usuario, unsigned i)
 {
     for(unsigned j = 0; j < this->clientes.size(); ++j)
