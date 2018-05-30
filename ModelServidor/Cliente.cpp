@@ -49,12 +49,14 @@ void Cliente::enviarRespuesta(char codigo)
     this->socket.enviarByte(codigo);
 }
 
-char Cliente::recibirUsuario() {
+char Cliente::recibirUsuario()
+{
     char codigo = this->socket.recibirByte();
     return codigo;
 }
 
-char Cliente::recibirPassword() {
+char Cliente::recibirPassword()
+{
     char codigo = this->socket.recibirByte();
     return codigo;
 }

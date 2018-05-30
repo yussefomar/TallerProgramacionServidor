@@ -20,7 +20,7 @@
 1525930098 /home/joacko/TallerProgramacionServidor/SocketCliente/SocketCliente.h
 	<string>
 
-1527369256 source:/home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.cpp
+1527621710 source:/home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.cpp
 	"SocketServidor.h"
 	<sys/types.h>
 	<sys/socket.h>
@@ -59,21 +59,20 @@
 	<queue>
 	<string>
 
-1527369289 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
+1527621710 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
 	"Cliente.h"
 	<iostream>
 
-1527369369 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
+1527621710 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
 	"Buffer.h"
 	"../SocketServidor/SocketServidor.h"
 
-1527366622 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+1527446830 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
 
-1527446382 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527649071 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
-	"Buffer.h"
 
 1527034003 source:/home/utnso/Taller/ServidorMartes/main.cpp
 	<string.h>
@@ -146,19 +145,20 @@
 	<list>
 	<yaml-cpp/yaml.h>
 
-1527100764 /home/joacko/TallerProgramacionServidor/Utils/Util_Configuracion.h
+1527621710 /home/joacko/TallerProgramacionServidor/Utils/Util_Configuracion.h
+	"../ModelServidor/ModeloServidor.h"
 	"../Utils/Util_ParserUsuario.h"
 	<iostream>
 	<string>
 	<list>
 
-1527100764 /home/joacko/TallerProgramacionServidor/Utils/Util_ParserUsuario.h
+1527621710 /home/joacko/TallerProgramacionServidor/Utils/Util_ParserUsuario.h
 	<iostream>
 	<string>
 	<list>
 	<yaml-cpp/yaml.h>
 
-1527100764 source:/home/joacko/TallerProgramacionServidor/Utils/Util_Configuracion.cpp
+1527621710 source:/home/joacko/TallerProgramacionServidor/Utils/Util_Configuracion.cpp
 	<yaml-cpp/yaml.h>
 	<yaml-cpp/exceptions.h>
 	<iostream>
@@ -167,8 +167,9 @@
 	<sstream>
 	<boost/algorithm/string.hpp>
 	"../Utils/Util_Configuracion.h"
+	"../ModelServidor/ModeloServidor.h"
 
-1527100764 source:/home/joacko/TallerProgramacionServidor/Utils/Util_ParserUsuario.cpp
+1527621710 source:/home/joacko/TallerProgramacionServidor/Utils/Util_ParserUsuario.cpp
 	<yaml-cpp/yaml.h>
 	<yaml-cpp/exceptions.h>
 	<iostream>
