@@ -26,6 +26,7 @@ void Cliente::enviarMensaje()
 {
     if(!this->estaConectado()) return;
     char codigo = this->buffer->popCodigo(this->id);
+    this->buckup.push_back(codigo);
     this->socket->enviarByte(codigo);
     this->actuarFrenteADesconexion();
 }
@@ -81,4 +82,9 @@ void Cliente::actuarFrenteADesconexion() {
     id = id << 6;
     char code = id | DESCJUG;
     this->buffer->pushCodigo(code);
+}
+
+void Cliente::intentarReconexion(SocketServidor* socket) {
+    delete this->socket;
+    this->socket = socket;
 }

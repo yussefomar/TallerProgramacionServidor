@@ -36,7 +36,7 @@
 1527652620 /home/joacko/TallerProgramacionServidor/SocketServidor/SocketServidor.h
 	<string>
 
-1527654288 source:/home/joacko/TallerProgramacionServidor/main.cpp
+1527707424 source:/home/joacko/TallerProgramacionServidor/main.cpp
 	<string.h>
 	<iostream>
 	<chrono>
@@ -51,30 +51,32 @@
 
 1525574562 source:/home/joacko/TallerProgramacionServidor/Thread/ Runnable .cpp
 
-1527100764 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
+1527704610 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.cpp
 	"Buffer.h"
 	<iostream>
 
-1527663212 /home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.h
+1527704446 /home/joacko/TallerProgramacionServidor/ModelServidor/Buffer.h
 	<vector>
 	<queue>
 	<string>
 
-1527666153 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
+1527714499 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
 	"Cliente.h"
 	<iostream>
 
-1527665179 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
+1527714239 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
 	"Buffer.h"
+	<list>
 	"../SocketServidor/SocketServidor.h"
 
-1527660504 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+1527708513 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
 	"VerificarInformacion.h"
 
-1527660169 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527707462 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
+	"TratarClientesNuevos.h"
 
 1527034003 source:/home/utnso/Taller/ServidorMartes/main.cpp
 	<string.h>
@@ -279,4 +281,18 @@
 	<Thread.h>
 	"Cliente.h"
 	"ModeloServidor.h"
+
+1527705497 source:/home/joacko/TallerProgramacionServidor/Thread/tratarClientesExtraordinarios.cpp
+	"tratarClientesExtraordinarios.h"
+
+1527705549 /home/joacko/TallerProgramacionServidor/Thread/tratarClientesExtraordinarios.h
+	"Thread.h"
+	"ModeloServidor.h"
+
+1527714131 /home/joacko/TallerProgramacionServidor/Thread/TratarClientesNuevos.h
+	"Thread.h"
+	"Cliente.h"
+
+1527713199 source:/home/joacko/TallerProgramacionServidor/Thread/TratarClientesNuevos.cpp
+	"TratarClientesNuevos.h"
 

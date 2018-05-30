@@ -2,6 +2,7 @@
 #define CLIENTE_H
 
 #include "Buffer.h"
+#include <list>
 #include "../SocketServidor/SocketServidor.h"
 
 class Cliente
@@ -21,6 +22,7 @@ public:
     char passwordUsuario;
     unsigned getID();
     void actuarFrenteADesconexion();
+    void intentarReconexion(SocketServidor* socketNuevo);
 
 protected:
 
@@ -29,6 +31,7 @@ private:
     unsigned id;
     Buffer* buffer;
     SocketServidor* socket;
+    std::list<char> buckup;
 };
 
 #endif // CLIENTE_H

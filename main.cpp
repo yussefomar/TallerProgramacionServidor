@@ -32,7 +32,7 @@ void modoMultiJugador()
     modeloServidor.aceptarClientesEntrantes();
     modeloServidor.recibirInformacion();
     modeloServidor.enviarOKInicio();
-    modeloServidor.rechazarClientesEntrantes();
+    modeloServidor.tratarNuevosClientes();
     std::cout << "server with clients" << std::endl;
     unsigned i = 0;
 

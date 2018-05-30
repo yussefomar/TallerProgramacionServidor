@@ -22,6 +22,7 @@ ModeloServidor::~ModeloServidor()
         delete this->clientes[i];
     }
     delete this->buffer;
+    delete this->tratarClientes;
 }
 
 void ModeloServidor::aceptarClientesEntrantes()
@@ -33,10 +34,10 @@ void ModeloServidor::aceptarClientesEntrantes()
     }
 }
 
-void ModeloServidor::rechazarClientesEntrantes()
+void ModeloServidor::tratarNuevosClientes()
 {
-    //en hilo aparte aceptamos clientes pero enviamos mensajes de
-    //que el juego ya esta completo.
+    this->tratarClientes->setIpPuerto(this->ip, this->puerto);
+    this->tratarClientes->empezarNuevoHilo();
 }
 
 void ModeloServidor::enviarMensajes()
@@ -170,10 +171,14 @@ char ModeloServidor::hashear(std::string unString)
     return code;
 }
 
-void ModeloServidor::setClientesPermitidos(int cantidadMaxClientes)
+void ModeloServidor::setClientesPermitidos(unsigned cantidadMaxClientes)
 {
-    this->buffer = new Buffer(cantidadMaxClientes);
     this->clientes = (std::vector<Cliente*>(cantidadMaxClientes));
+    this->buffer = new Buffer(cantidadMaxClientes);
+    this->tratarClientes = new TratarClientesNuevos(cantidadMaxClientes);
+    for(unsigned i = 0; i < cantidadMaxClientes; ++i) {
+        this->tratarClientes->agregarCliente(this->clientes[i], i);
+    }
 }
 
 void ModeloServidor::setIpYPuerto(std::string ip, std::string puerto)
