@@ -84,37 +84,31 @@ void ModeloServidor::recibirInformacion()
     bool sinPass = true;
     char usuario;
     char password;
-    while( sinUsuario || sinPass )
+
+    for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        if(sinUsuario)
+        while(sinUsuario)
         {
-            for(unsigned i = 0; i < this->clientes.size(); ++i)
-            {
-                usuario = this->clientes[i]->recibirUsuario();
-                sinUsuario = this->verificarUsuario(usuario, i);
-            }
+            usuario = this->clientes[i]->recibirUsuario();
+            sinUsuario = this->verificarUsuario(usuario, i);
         }
-        else if((!sinUsuario) && sinPass)
+        sinUsuario = true;
+
+        while(sinPass)
         {
-            for(unsigned i = 0; i < this->clientes.size(); ++i)
-            {
-                password = this->clientes[i]->recibirPassword();
-                sinPass = this->verificarPassword(usuario, password, i);
-            }
+            password = this->clientes[i]->recibirPassword();
+            sinPass = this->verificarPassword(usuario, password, i);
         }
+        sinPass = true;
+
     }
     return;
 }
 
-void ModeloServidor::consultarInicio()
+void ModeloServidor::enviarOKInicio()
 {
-    char consulta = 0X00;
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        //REUTILIZO RECIBIRUSUARIO PORQUE SOLO RECIBE 1 BYTE.
-        //EL CODIGO DE CONSULTA SERIA PARA VER SI PREGUNTA POR EL ARRANQUE.
-        consulta = this->clientes[i]->recibirUsuario();
-        //A PRIORI NO SERIA NECESARIO UNA LOGICA PARA VER SI TODOS TERMINARON. CREO.
         this->clientes[i]->enviarRespuesta(LI_INICIO_OK);
     }
     return;
@@ -126,7 +120,8 @@ bool ModeloServidor::verificarUsuario(char usuario, unsigned i)
     {
         //Para todos menos para el usuario actual.
         if(i != j)
-        {   //Si hay otro usuario con el mismo nombre está mal.
+        {
+            //Si hay otro usuario con el mismo nombre está mal.
             if(this->clientes[j]->nombreUsuario == usuario)
             {
                 //0X0D NOMBRE OCUPADO.
@@ -173,11 +168,7 @@ char ModeloServidor::hashear(std::string unString)
 {
     char code = 0X00;
     char caracter = 0X00;
-    /*for(unsigned i = 0; i < unString.size(); ++i)
-    {
-        caracter = unString[i];
-        code = code | caracter << 1;
-    }*/
+
     int hasha = 7;
     for(unsigned i = 0; i < unString.size(); ++i)
     {

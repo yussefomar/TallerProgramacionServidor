@@ -31,7 +31,7 @@ void modoMultiJugador()
     Util_Configuracion configuracion(&modeloServidor);
     modeloServidor.aceptarClientesEntrantes();
     modeloServidor.recibirInformacion();
-    //modeloServidor.consultarInicio();
+    modeloServidor.enviarOKInicio();
     modeloServidor.rechazarClientesEntrantes();
     std::cout << "server with clients" << std::endl;
     unsigned i = 0;
