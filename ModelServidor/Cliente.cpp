@@ -1,39 +1,46 @@
 #include "Cliente.h"
 #include <iostream>
+
+
 #define ENTIDAD 0
 #define EVENTO 1
+
+#define DESCJUG 0x0E
+
 Cliente::Cliente(Buffer* buffer, std::string ip, std::string puerto) :
     id(++Cliente::contadorClientes),
-    buffer(buffer),
-    socket(ip, puerto)
+    buffer(buffer)
 {
-    /*El cliente posiblemente deba tener estada. Es decir, implementar patron estado
-    donde pueda estar conectado o desconectado y actuar en concecuencia.
-    Si esta desconectado, intentar conectarse cada que pueda. y pedir requisitos necesarios)*/
+    this->socket = new SocketServidor(ip, puerto);
 }
 
 Cliente::~Cliente()
 {
-    //dtor
+    if(this->socket == nullptr) return;
+    delete this->socket;
 }
 
 int Cliente::contadorClientes = -1;
 
 void Cliente::enviarMensaje()
 {
+    if(!this->estaConectado()) return;
     char codigo = this->buffer->popCodigo(this->id);
-    this->socket.enviarByte(codigo);
+    this->socket->enviarByte(codigo);
+    this->actuarFrenteADesconexion();
 }
 
 void Cliente::recibirMensaje()
 {
-    char codigo = this->socket.recibirByte();
+    if(!this->estaConectado()) return;
+    char codigo = this->socket->recibirByte();
     this->buffer->pushCodigo(codigo);
+    this->actuarFrenteADesconexion();
 }
 
 bool Cliente::estaConectado()
 {
-    return this->socket.estaConectado();
+    return this->socket->estaConectado();
 }
 
 bool Cliente::hayCambios()
@@ -44,26 +51,34 @@ bool Cliente::hayCambios()
 void Cliente::enviarId(unsigned id)
 {
     char idCaracter = id;
-    this->socket.enviarByte(idCaracter);
+    this->socket->enviarByte(idCaracter);
 }
 
 void Cliente::enviarRespuesta(char codigo)
 {
-    this->socket.enviarByte(codigo);
+    this->socket->enviarByte(codigo);
 }
 
 char Cliente::recibirUsuario()
 {
-    char codigo = this->socket.recibirByte();
+    char codigo = this->socket->recibirByte();
     return codigo;
 }
 
 char Cliente::recibirPassword()
 {
-    char codigo = this->socket.recibirByte();
+    char codigo = this->socket->recibirByte();
     return codigo;
 }
 
 unsigned Cliente::getID() {
     return this->id;
+}
+
+void Cliente::actuarFrenteADesconexion() {
+    if(this->estaConectado()) return;
+    char id = this->id;
+    id = id << 6;
+    char code = id | DESCJUG;
+    this->buffer->pushCodigo(code);
 }

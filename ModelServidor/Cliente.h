@@ -20,6 +20,7 @@ public:
     char nombreUsuario;
     char passwordUsuario;
     unsigned getID();
+    void actuarFrenteADesconexion();
 
 protected:
 
@@ -27,7 +28,7 @@ private:
     static int contadorClientes;
     unsigned id;
     Buffer* buffer;
-    SocketServidor socket;
+    SocketServidor* socket;
 };
 
 #endif // CLIENTE_H

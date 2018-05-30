@@ -18,6 +18,7 @@ protected:
 
 private:
     std::vector<std::queue<char>> buffers;
+    std::queue<char> buckup;
 };
 
 #endif // BUFFER_H

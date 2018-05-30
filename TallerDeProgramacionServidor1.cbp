@@ -16,7 +16,11 @@
 					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="ModelServidor" />
+					<Add directory="Thread" />
 				</Compiler>
+				<Linker>
+					<Add library="pthread" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/TallerDeProgramacionServidor1" prefix_auto="1" extension_auto="1" />
@@ -27,6 +31,7 @@
 					<Add option="-O2" />
 					<Add option="-std=c++11" />
 					<Add directory="ModelServidor" />
+					<Add directory="Thread" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -50,12 +55,10 @@
 		<Unit filename="SocketCliente/SocketCliente.h" />
 		<Unit filename="SocketServidor/SocketServidor.cpp" />
 		<Unit filename="SocketServidor/SocketServidor.h" />
-		<Unit filename="Thread/ Runnable .cpp" />
-		<Unit filename="Thread/ Runnable .h" />
 		<Unit filename="Thread/Thread.cpp" />
 		<Unit filename="Thread/Thread.h" />
-		<Unit filename="Thread/communicatingThread.cpp" />
-		<Unit filename="Thread/communicatingThread.h" />
+		<Unit filename="Thread/VerificarInformacion.cpp" />
+		<Unit filename="Thread/VerificarInformacion.h" />
 		<Unit filename="Utils/Util_Configuracion.cpp" />
 		<Unit filename="Utils/Util_Configuracion.h" />
 		<Unit filename="Utils/Util_ParserUsuario.cpp" />
