@@ -2,7 +2,10 @@
 #include <iostream>
 #define ENTIDAD 0
 #define EVENTO 1
-Cliente::Cliente(Buffer* buffer) : id(++Cliente::contadorClientes), buffer(buffer)
+Cliente::Cliente(Buffer* buffer, std::string ip, std::string puerto) :
+    id(++Cliente::contadorClientes),
+    buffer(buffer),
+    socket(ip, puerto)
 {
     /*El cliente posiblemente deba tener estada. Es decir, implementar patron estado
     donde pueda estar conectado o desconectado y actuar en concecuencia.

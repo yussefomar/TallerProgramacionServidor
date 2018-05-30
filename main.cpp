@@ -49,19 +49,19 @@ void modoMultiJugador()
 
 void modoSingleJugador()
 {
-    std::cout << "server run" << std::endl;
-    Buffer buffer(1);
-    Cliente cliente(&buffer);
-    std::cout << "server with clients" << std::endl;
-    int i = 0;
-    while(cliente.estaConectado())
-    {
-        cliente.recibirMensaje();
-        cliente.enviarMensaje();
-        ++i;
-        std::cout << "Termino el Ciclo nro: " << i << std::endl;
-    }
-
-    std::cout << "Server desconectado" << std::endl;
+//    std::cout << "server run" << std::endl;
+//    Buffer buffer(1);
+//    Cliente cliente(&buffer);
+//    std::cout << "server with clients" << std::endl;
+//    int i = 0;
+//    while(cliente.estaConectado())
+//    {
+//        cliente.recibirMensaje();
+//        cliente.enviarMensaje();
+//        ++i;
+//        std::cout << "Termino el Ciclo nro: " << i << std::endl;
+//    }
+//
+//    std::cout << "Server desconectado" << std::endl;
 
 }

@@ -26,7 +26,7 @@ void ModeloServidor::aceptarClientesEntrantes()
 {
     for(unsigned i = 0; i < this->clientes.size(); ++i)
     {
-        this->clientes[i] = new Cliente(this->buffer);
+        this->clientes[i] = new Cliente(this->buffer, this->ip, this->puerto);
         this->clientes[i]->enviarId(i);
     }
 }

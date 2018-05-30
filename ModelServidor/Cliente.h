@@ -7,7 +7,7 @@
 class Cliente
 {
 public:
-    Cliente(Buffer* buffer);
+    Cliente(Buffer* buffer, std::string ip, std::string puerto);
     virtual ~Cliente();
     void recibirMensaje();
     void enviarMensaje();

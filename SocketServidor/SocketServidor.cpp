@@ -25,11 +25,11 @@
 #define ENTIDAD 0
 #define EVENTO 1
 
-SocketServidor::SocketServidor()
+SocketServidor::SocketServidor(std::string ip, std::string puerto)
 {
     if(!SocketServidor::masterSocketFDConectado)
     {
-        this->generarMasterSocketFD();
+        this->generarMasterSocketFD(ip, puerto);
     }
 
     /*intentamos aceptar un cliente entrante*/
@@ -56,7 +56,7 @@ SocketServidor::~SocketServidor()
 int SocketServidor::masterSocketFD = 0;
 int SocketServidor::masterSocketFDConectado = 0;
 
-void SocketServidor::generarMasterSocketFD()
+void SocketServidor::generarMasterSocketFD(std::string ip, std::string puerto)
 {
     struct addrinfo hints;
     struct addrinfo *posibilidades;
@@ -67,9 +67,6 @@ void SocketServidor::generarMasterSocketFD()
     hints.ai_family = AF_INET; /* IP v4*/
     hints.ai_socktype = SOCK_STREAM; /* Protocolo TCP */
     hints.ai_flags = AI_PASSIVE; /*For server*/
-
-    std::string ip = LOCALHOST;
-    std::string puerto = PUERTOSERVER;
 
     resultado = getaddrinfo(ip.c_str(), puerto.c_str(), &hints, &posibilidades);
 

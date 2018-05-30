@@ -5,10 +5,10 @@
 class SocketServidor
 {
 public:
-    SocketServidor();
+    SocketServidor(std::string ip, std::string puerto);
     virtual ~SocketServidor();
     bool estaConectado();
-    void generarMasterSocketFD();
+    void generarMasterSocketFD(std::string ip, std::string puerto);
     void enviarByte(char byte);
     char recibirByte();
 
