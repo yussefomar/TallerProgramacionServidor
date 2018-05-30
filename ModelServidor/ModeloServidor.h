@@ -31,7 +31,7 @@ protected:
 private:
     Buffer* buffer;
     std::vector<Cliente*> clientes;
-    int cantidadClientes;
+    //int cantidadClientes;
     std::string ip;
     std::string puerto;
 };

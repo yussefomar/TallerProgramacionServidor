@@ -46,7 +46,8 @@
 
 1525574535 source:/home/joacko/TallerProgramacionServidor/Thread/communicatingThread.cpp
 
-1525574542 source:/home/joacko/TallerProgramacionServidor/Thread/Thread.cpp
+1527658794 source:/home/joacko/TallerProgramacionServidor/Thread/Thread.cpp
+	"Thread.h"
 
 1525574562 source:/home/joacko/TallerProgramacionServidor/Thread/ Runnable .cpp
 
@@ -59,18 +60,19 @@
 	<queue>
 	<string>
 
-1527652500 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
+1527658775 source:/home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.cpp
 	"Cliente.h"
 	<iostream>
 
-1527652446 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
+1527658755 /home/joacko/TallerProgramacionServidor/ModelServidor/Cliente.h
 	"Buffer.h"
 	"../SocketServidor/SocketServidor.h"
 
-1527654013 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+1527660504 source:/home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
 	"ModeloServidor.h"
+	"VerificarInformacion.h"
 
-1527654330 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
+1527660169 /home/joacko/TallerProgramacionServidor/ModelServidor/ModeloServidor.h
 	<vector>
 	"Cliente.h"
 
@@ -263,5 +265,18 @@
 	"../Utils/Util_ParserUsuario.h"
 
 1527616917 source:/home/andres/Taller/TallerProgramacionServidor/ModelServidor/ModeloServidor.cpp
+	"ModeloServidor.h"
+
+1527658409 /home/joacko/TallerProgramacionServidor/Thread/Thread.h
+	<iostream>
+	<vector>
+	<thread>
+
+1527659889 source:/home/joacko/TallerProgramacionServidor/Thread/VerificarInformacion.cpp
+	"VerificarInformacion.h"
+
+1527659855 /home/joacko/TallerProgramacionServidor/Thread/VerificarInformacion.h
+	<Thread.h>
+	"Cliente.h"
 	"ModeloServidor.h"
 

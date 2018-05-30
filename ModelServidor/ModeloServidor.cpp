@@ -1,4 +1,6 @@
 #include "ModeloServidor.h"
+#include "VerificarInformacion.h"
+
 
 #define LI_NOMBRE_OK 0X0B //NOMBRE CORRECTO.
 #define LI_NOMBRE_ERROR 0X0C //NOMBRE INCORRECTO.
@@ -80,27 +82,16 @@ bool ModeloServidor::hayCambiosPorEnviar()
 
 void ModeloServidor::recibirInformacion()
 {
-    bool sinUsuario = true;
-    bool sinPass = true;
-    char usuario;
-    char password;
+    //Se lanza un hilo por cada cliente.
+    std::vector<VerificarInformacion*> verificadores = std::vector<VerificarInformacion*>(this->clientes.size());
+    for(unsigned i = 0; i < this->clientes.size(); ++i) {
+        verificadores[i] = new VerificarInformacion(this->clientes[i], this);
+        verificadores[i]->empezarNuevoHilo();
+    }
 
-    for(unsigned i = 0; i < this->clientes.size(); ++i)
-    {
-        while(sinUsuario)
-        {
-            usuario = this->clientes[i]->recibirUsuario();
-            sinUsuario = this->verificarUsuario(usuario, i);
-        }
-        sinUsuario = true;
-
-        while(sinPass)
-        {
-            password = this->clientes[i]->recibirPassword();
-            sinPass = this->verificarPassword(usuario, password, i);
-        }
-        sinPass = true;
-
+    for(unsigned i = 0; i < this->clientes.size(); ++i) {
+        verificadores[i]->bloquearHiloInvocante();
+        delete verificadores[i];
     }
     return;
 }

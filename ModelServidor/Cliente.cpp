@@ -63,3 +63,7 @@ char Cliente::recibirPassword()
     char codigo = this->socket.recibirByte();
     return codigo;
 }
+
+unsigned Cliente::getID() {
+    return this->id;
+}

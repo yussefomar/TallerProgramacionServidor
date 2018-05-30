@@ -19,12 +19,13 @@ public:
     void enviarRespuesta(char codigo);
     char nombreUsuario;
     char passwordUsuario;
+    unsigned getID();
 
 protected:
 
 private:
     static int contadorClientes;
-    int id;
+    unsigned id;
     Buffer* buffer;
     SocketServidor socket;
 };
